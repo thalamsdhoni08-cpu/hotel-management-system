@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - Hotel Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar (Simplified for brevity, identical to dashboard in production) -->
+        <aside class="sidebar w-64 flex flex-col hidden md:flex">
+            <div class="p-4 border-b border-gray-800">
+                <h1 class="text-lg font-semibold text-white tracking-wide">PMS Enterprise</h1>
+            </div>
+            <nav class="flex-1 py-4">
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="rooms.html" class="nav-item active">Rooms</a>
+                <a href="booking.html" class="nav-item">Bookings</a>
+                <a href="checkout.html" class="nav-item">Checkout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar h-16 flex items-center px-6">
+                <h2 class="text-xl font-semibold text-gray-800">Rooms Management</h2>
+            </header>
+
+            <div class="content-area">
+                <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-6 gap-4">
+                    <div class="flex flex-wrap items-center gap-3">
+                        <select id="filter-type" class="form-input w-40 py-2 text-sm">
+                            <option value="all">All Types</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Deluxe">Deluxe</option>
+                            <option value="Suite">Suite</option>
+                        </select>
+                        <select id="filter-status" class="form-input w-40 py-2 text-sm">
+                            <option value="all">All Statuses</option>
+                            <option value="available">Available</option>
+                            <option value="occupied">Booked</option>
+                        </select>
+                        <select id="sort-rooms" class="form-input w-48 py-2 text-sm">
+                            <option value="room-no">Sort: Room No</option>
+                            <option value="price-asc">Sort: Price (Low to High)</option>
+                            <option value="price-desc">Sort: Price (High to Low)</option>
+                            <option value="availability">Sort: Availability</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center gap-3 w-full xl:w-auto justify-end">
+                        <div class="bg-white border text-gray-600 border-gray-300 rounded-md inline-flex overflow-hidden p-1 shadow-sm">
+                            <button id="view-grid" class="px-3 py-1 bg-gray-100 text-gray-800 rounded shadow-sm text-sm font-medium transition-colors">Grid</button>
+                            <button id="view-table" class="px-3 py-1 rounded text-sm font-medium transition-colors hover:bg-gray-50">Table</button>
+                        </div>
+                        <button class="btn-primary flex-shrink-0">Add New Room</button>
+                    </div>
+                </div>
+
+                <!-- Grid View -->
+                <div id="rooms-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Cards will be injected dynamically -->
+                </div>
+
+                <!-- Table View -->
+                <div id="rooms-table-container" class="panel hidden">
+                    <div class="overflow-x-auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Room No.</th>
+                                    <th>Type</th>
+                                    <th>Capacity</th>
+                                    <th>Price / Night</th>
+                                    <th>Current Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rooms-table-body">
+                                <!-- Table rows will be injected dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/ui.js"></script>
+</body>
+</html>

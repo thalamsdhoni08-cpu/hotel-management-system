@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Hotel Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar w-64 flex flex-col hidden md:flex">
+            <div class="p-4 border-b border-gray-800">
+                <h1 class="text-lg font-semibold text-white tracking-wide">PMS Enterprise</h1>
+            </div>
+            <nav class="flex-1 py-4">
+                <a href="dashboard.html" class="nav-item">Dashboard</a>
+                <a href="rooms.html" class="nav-item">Rooms</a>
+                <a href="booking.html" class="nav-item">Bookings</a>
+                <a href="checkout.html" class="nav-item active">Checkout</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar h-16 flex items-center px-6">
+                <h2 class="text-xl font-semibold text-gray-800">Guest Checkout</h2>
+            </header>
+
+            <div class="content-area">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-6">
+                    <!-- Invoice Details Left Side -->
+                    <div class="panel p-8 flex-1">
+                        <div class="flex justify-between items-start mb-8 pb-6 border-b border-gray-200">
+                            <div>
+                                <h1 class="text-2xl font-bold text-gray-900">INVOICE</h1>
+                                <p class="text-sm text-gray-500 mt-1">Invoice #INV-92837</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-medium text-gray-800">Date Issued:</p>
+                                <p class="text-sm text-gray-600">Oct 15, 2023</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between mb-8">
+                            <div>
+                                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Billed To:</h3>
+                                <p class="text-sm font-medium text-gray-900">Michael Scott</p>
+                                <p class="text-sm text-gray-600">michael@dundermifflin.com</p>
+                                <p class="text-sm text-gray-600">+1 (555) 123-4567</p>
+                            </div>
+                            <div class="text-right">
+                                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Stay Details:</h3>
+                                <p class="text-sm text-gray-800">Room 104 (Deluxe)</p>
+                                <p class="text-sm text-gray-600">Oct 12 - Oct 15 (3 Nights)</p>
+                            </div>
+                        </div>
+
+                        <table class="w-full mb-8">
+                            <thead>
+                                <tr class="border-y border-gray-200">
+                                    <th class="py-3 text-left text-xs font-semibold text-gray-500 uppercase">Item Description</th>
+                                    <th class="py-3 text-right text-xs font-semibold text-gray-500 uppercase">Qty / Nights</th>
+                                    <th class="py-3 text-right text-xs font-semibold text-gray-500 uppercase">Rate</th>
+                                    <th class="py-3 text-right text-xs font-semibold text-gray-500 uppercase">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-4 text-sm text-gray-800 border-b border-gray-100">Room Rate (Deluxe)</td>
+                                    <td class="py-4 text-sm text-gray-600 text-right border-b border-gray-100">3</td>
+                                    <td class="py-4 text-sm text-gray-600 text-right border-b border-gray-100">$200.00</td>
+                                    <td class="py-4 text-sm font-medium text-gray-900 text-right border-b border-gray-100">$600.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 text-sm text-gray-800 border-b border-gray-100">Room Service (Oct 13)</td>
+                                    <td class="py-4 text-sm text-gray-600 text-right border-b border-gray-100">1</td>
+                                    <td class="py-4 text-sm text-gray-600 text-right border-b border-gray-100">$45.00</td>
+                                    <td class="py-4 text-sm font-medium text-gray-900 text-right border-b border-gray-100">$45.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="flex justify-end">
+                            <div class="w-64">
+                                <div class="flex justify-between py-2 text-sm">
+                                    <span class="text-gray-600">Subtotal</span>
+                                    <span class="font-medium text-gray-900">$645.00</span>
+                                </div>
+                                <div class="flex justify-between py-2 text-sm border-b border-gray-200">
+                                    <span class="text-gray-600">Tax (10%)</span>
+                                    <span class="font-medium text-gray-900">$64.50</span>
+                                </div>
+                                <div class="flex justify-between py-3 text-lg font-bold">
+                                    <span class="text-gray-900">Total</span>
+                                    <span class="text-sky-600">$709.50</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Controls Right Side -->
+                    <div class="w-full md:w-80">
+                        <div class="panel p-6 sticky top-6">
+                            <h3 class="text-md font-semibold text-gray-800 mb-4">Process Checkout</h3>
+                            
+                            <div class="form-group mb-4">
+                                <label class="form-label">Payment Method</label>
+                                <select class="form-input">
+                                    <option>Credit Card (ends in 4242)</option>
+                                    <option>Cash</option>
+                                    <option>Bank Transfer</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group mb-6">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="h-4 w-4 text-sky-600 border-gray-300 rounded" checked>
+                                    <span class="ml-2 text-sm text-gray-600">Send receipt to email</span>
+                                </label>
+                            </div>
+
+                            <button class="btn-primary w-full py-3 text-sm font-semibold tracking-wide">Complete Checkout</button>
+                            <button class="w-full py-3 mt-3 text-sm font-medium text-gray-600 bg-gray-50 border border-gray-200 rounded hover:bg-gray-100">Print Invoice</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
